@@ -14,7 +14,7 @@ Author URI: http://digitalhymn.com/
  *
  * by Davide 'Folletto' Casali <folletto AT gmail DOT com>
  * www.digitalhymn.com
- * Copyright (C) 2006/2007 - Creative Commons (CC) by-sa 2.5
+ * Copyright (C) 2006/2009 - Creative Commons (CC) by-sa 2.5
  * 
  * Based upon a library developed for key-one.it (Kallideas / Key-One)
  * Thanks to Roberto Ostinelli and Alessandro Morandi.
