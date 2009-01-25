@@ -649,7 +649,7 @@ if (!isset($WPP_VERSION) && !class_exists("wpp")) {
        * Dynamically inject URL handlers inside WP structure.
        * 
        * @param    virtual URL to be handled (i.e. 'path/to/handle')
-       * @param    array 
+       * @param    php pages to be called (i.e. array(get_template_directory() . "/virtual.php", dirname(__FILE__) . "/virtual.php"));
        */
       if (is_array($handlers) && sizeof($handlers)) {
         // ****** Prepare data
