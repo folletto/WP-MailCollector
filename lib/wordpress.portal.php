@@ -38,6 +38,7 @@ Author URI: http://digitalhymn.com/
  *  wpp::get_last_comments_grouped($size): gets the last comments, one comment per post
  *  wpp::get_pages_root(): gets the root page of the current page subtree
  *  wpp::list_pages_of_section(): like wp_list_pages() but getting only the pages of the section
+ *  wpp::add_virtual_page($url, $handlersarray): add a custom virtual page to be called when $url is called
  * 
  * DETAILS:
  * The most interesting function is the wpp_foreach_post() that in fact creates a custom
