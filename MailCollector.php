@@ -2,7 +2,7 @@
 /*
 Plugin Name: MailCollector
 Plugin URI: http://digitalhymn.com
-Description: Gathers e-mail addresses to be used in ML.
+Description: Gathers e-mail addresses to be used in ML. Shortcode: [mailcollectorform destination="path/to/page"]
 Author: Davide 'Folletto' Casali
 Version: 0.1
 Author URI: http://digitalhymn.com
