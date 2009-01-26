@@ -20,7 +20,8 @@ $cmc_version = "0.1";
 require_once 'lib/wordpress.portal.php';
 
 // Admin
-require_once 'classes/wp-admin.php';
+require_once 'admin/wp-admin.php';
+require_once 'admin/wp-shortcode.php';
 
 
 /************************************************************************************ CLASS
@@ -29,17 +30,34 @@ require_once 'classes/wp-admin.php';
  */
 class MailCollector {
 	
-	function form() {
+	function form($action, $label = "Get it") {
 	  /****************************************************************************************************
      * Show form.
      * 
-     * @return    array of emails
+     * @return    html
      */
     $out = '';
     
-    $out .= '<label>';
-    $out .= '<input type="text" maxlength="50" />';
+    /*$out .= '    <script type="text/javascript">
+    function mailcollectorCheckEmail() {
+      var mt = document.getElementById("mailcollectorEmail");
+      if (mt.value.match(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
+        return true;
+      }
+      return false;
+    }
+    </script>
+    ';*/
+    $out .= '<form id="mailcollector" action="' . get_bloginfo('url') . "/mailcollector/submit" . '" enctype="multipart/form-data" method="post">';
+    $out .= '<input type="hidden" name="destination" id="destination" value="' . $action . '" />';
+    
+    $out .= '<label for="mailcollectorEmail">';
+    $out .= '  <input type="text" maxlength="50" id="email" name="email" />';
     $out .= '</label>';
+    
+    $out .= '<input type="submit" value="' . $label . '" />';
+    
+    $out .= '<form>';
     
     return $out;
   }
@@ -58,7 +76,7 @@ class MailCollector {
     $email = $wpdb->escape($email);
     $notes = $wpdb->escape($notes);
     
-    if (!$this->mail_exists($email)) {
+    if ($email && !$this->mail_exists($email)) {
       $query = "
   			INSERT INTO " . $wpdb->prefix . "mailcollector
   				(email, notes, timestamp)
@@ -182,6 +200,10 @@ wpp::add_virtual_page('mailcollector/api/add', array(
 	dirname(__FILE__) . "/virtual/api.add.php"  
 ));
 
+wpp::add_virtual_page('mailcollector/submit', array(
+  get_template_directory() . "/mailcollector.php",
+	dirname(__FILE__) . "/virtual/submit.php"  
+));
 
 
 ?>

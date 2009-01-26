@@ -17,10 +17,10 @@ function imagecontest_admin() {
 	
 	echo '<h3>Complete list of mails</h2>';
 	
-	echo '<ol style="list-style-type: decimal; padding: 0 0 0 30px">';
+	//echo '<ol style="list-style-type: decimal; padding: 0 0 0 30px">';
 	//echo '<li>' . join($MailCollector->get_emails(), "</li>\n<li>") . '</li>';
-	echo '<li>' . join($MailCollector->get_emails(), ", <br/>") . '</li>';
-	echo '</ol>';
+	echo '' . join($MailCollector->get_emails(), ", ") . '';
+	//echo '</ol>';
 	
 	echo '</div>';
 }
