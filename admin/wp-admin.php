@@ -3,13 +3,13 @@
 add_action('admin_menu', 'mailcollector_admin_menu_hook');
 function mailcollector_admin_menu_hook() {
 	if ( function_exists('add_submenu_page') )
-		add_submenu_page('edit.php', __('MailCollector Administration'), __('MailCollector'), 'manage_options', 'imagecontest-administration', 'imagecontest_admin');
+		add_submenu_page('edit.php', __('MailCollector Administration'), __('MailCollector'), 'manage_options', 'imagecontest-administration', 'mailcollector_admin');
 }
 
 /******************************************************************************************
  * Administration Panel for ImageContest Plugin
  */
-function imagecontest_admin() {
+function mailcollector_admin() {
 	global $MailCollector;
 	
 	echo '<div class="wrap">';
